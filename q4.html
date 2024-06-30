@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Manipulation</title>
+  </head>
+  <body>
+    <div id="intro-text">Hi I'm Shefaoudeen</div>
+    <p>I'm an</p>
+    <ul id="course">
+      <li>ECE student</li>
+    </ul>
+    <div id="clg">PTU student</div>
+    <button onclick="{domManipulation()}">Click for DOM manipulation</button>
+  </body>
+  <script>
+    let show = true;
+
+    const domManipulation = () => {
+      /*Use JavaScript to change the text and HTML content of a <div> element*/
+      let intro = document.getElementById("intro-text");
+      intro.innerText = "Nice to Meet you";
+
+      /*Create and insert a new <li> element into an existing <ul> list dynamically.*/
+      let course = document.getElementById("course");
+      let newli = document.createElement("li");
+      newli.innerText = "and a CSE Minor Student";
+      course.appendChild(newli);
+
+      /*Implement a function to hide or show elements on a webpage.*/
+      let ptu = document.getElementById("clg");
+      if (show) {
+        ptu.style.display = "none";
+        show = false;
+      } else {
+        ptu.style.display = "";
+        show = true;
+      }
+    };
+  </script>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="{showAlert()}">Click for Alert message</button>
+    <br /><br />
+    <form name="myForm">
+      <label for="name">Enter your Name : </label>
+      <input type="text" name="name" id="name_input" /><br />
+      <label for="regno">Enter your Register No : </label>
+      <input type="text" name="regno" id="regno_input" /><br />
+      <input type="submit" value="Submit" onclick="{formValidate()}" />
+    </form>
+    <div style="width: 100vw; height: 100vh; display: relative">
+      <div
+        style="
+          width: 100px;
+          height: 100px;
+          background: black;
+          position: absolute;
+        "
+        id="box"
+      ></div>
+    </div>
+  </body>
+  <script>
+    /*Add an event listener to a button that alerts a message when clicked.*/
+    const showAlert = () => {
+      alert("You have completed the assignment successfully");
+    };
+
+    /*Create a form with validation that alerts if the input is not valid when submitted.
+     */
+    const formValidate = () => {
+      let name = document.forms["myForm"]["name"].value;
+      let regno = document.forms["myForm"]["regno"].value;
+      if (name == "" || regno == "") {
+        alert("Please fill out the form");
+      }
+    };
+
+    /*Use keyboard events to move an element on the page with arrow keys.*/
+    let move = 10;
+    var box = document.getElementById("box");
+
+    window.addEventListener("load", () => {
+      box.style.top = 0;
+      box.style.right = 0;
+    });
+
+    window.addEventListener("keyup", (e) => {
+      switch (e.key) {
+        case "ArrowRight":
+          box.style.right = parseInt(box.style.right) - move + "px";
+          break;
+        case "ArrowLeft":
+          box.style.right = parseInt(box.style.right) + move + "px";
+          console.log(box.style.right);
+          break;
+        case "ArrowUp":
+          box.style.top = parseInt(box.style.top) - move + "px";
+          break;
+        case "ArrowDown":
+          box.style.top = parseInt(box.style.top) + move + "px";
+          break;
+      }
+    });
+  </script>
+</html>
